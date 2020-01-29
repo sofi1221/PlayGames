@@ -1,17 +1,9 @@
 import pygame
 
-pygame.init()
-size = width, height = 1100, 700
-screen = pygame.display.set_mode(size)
-pos = (400, 350 + 175)
-pos_vrag = (400, 175)
-pos_shaiba = (400, 350)
-x = 0
-v_x = 0
-v_y = 0
 
-schet_igr = 0
-schet_comp = 0
+def main():
+    print('My first git program')
+    print('And I change it every day')
 
 
 def draw():
@@ -63,15 +55,30 @@ def vozvrat():
     print(schet_igr, schet_comp)
 
 
-pygame.display.flip()
-running = True
-clock = pygame.time.Clock()
-while running:
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            running = False
-        if event.type == pygame.KEYDOWN:
-            vozvrat()
-    draw()
+if __name__ == '__main__':
+    main()
+    pygame.init()
+    size = width, height = 1100, 700
+    screen = pygame.display.set_mode(size)
+    pos = (400, 350 + 175)
+    pos_vrag = (400, 175)
+    pos_shaiba = (400, 350)
+    x = 0
+    v_x = 0
+    v_y = 0
+
+    schet_igr = 0
+    schet_comp = 0
+
     pygame.display.flip()
-    clock.tick(24)
+    running = True
+    clock = pygame.time.Clock()
+    while running:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                running = False
+            if event.type == pygame.KEYDOWN:
+                vozvrat()
+        draw()
+        pygame.display.flip()
+        clock.tick(24)
