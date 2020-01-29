@@ -10,6 +10,9 @@ x = 0
 v_x = 0
 v_y = 0
 
+schet_igr = 0
+schet_comp = 0
+
 
 def draw():
     # screen.fill((204, 202, 202))  # светлая тема
@@ -41,13 +44,25 @@ def kraya():
 
 
 def vorota():
-    pass
+    global schet_comp, schet_igr
+    if pos_shaiba[1] - 20 in range(20) or pos_shaiba[1] + 20 in range(680, 700):
+        if pos_shaiba[0] in range(150 + 100, 150 + 300):
+            if pos_shaiba[1] - 20 in range(20):
+                schet_igr += 1
+            else:
+                schet_comp += 1
+            vozvrat()
+
 
 def vozvrat():
-    pass
+    global pos, pos_vrag, pos_shaiba, v_y, v_x
+    pos = (400, int(350 * 1.5))
+    pos_shaiba = (400, 350)
+    pos_vrag = (400, 175)
+    v_x = v_y = 0
+    print(schet_igr, schet_comp)
 
 
-draw()
 pygame.display.flip()
 running = True
 clock = pygame.time.Clock()
