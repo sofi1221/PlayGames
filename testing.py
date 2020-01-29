@@ -3,6 +3,12 @@ import pygame
 pygame.init()
 size = width, height = 1100, 700
 screen = pygame.display.set_mode(size)
+pos = (400, 350 + 175)
+pos_vrag = (400, 175)
+pos_shaiba = (400, 350)
+x = 0
+v_x = 0
+v_y = 0
 
 
 def draw():
@@ -17,16 +23,25 @@ def draw():
 
 
 def otbit():
-    pass
+    global v_x, v_y
+    if (pos[0] - pos_shaiba[0]) ** 2 + (pos[1] - pos_shaiba[1]) ** 2 <= 40 ** 2:
+        v_x = (-pos[0] + pos_shaiba[0]) // 5
+        v_y = (-pos[1] + pos_shaiba[1]) // 5
+    if (pos_vrag[0] - pos_shaiba[0]) ** 2 + (pos_vrag[1] - pos_shaiba[1]) ** 2 <= 40 ** 2:
+        v_x = (-pos_vrag[0] + pos_shaiba[0]) // 5
+        v_y = (-pos_vrag[1] + pos_shaiba[1]) // 5
 
 
 def kraya():
-    pass
+    global v_y, v_x
+    if pos_shaiba[0] - 20 <= 150 or pos_shaiba[0] + 20 >= 150 + 500:
+        v_x *= -1
+    if pos_shaiba[1] - 20 <= 0 or pos_shaiba[1] + 20 >= 700:
+        v_y *= -1
 
 
 def vorota():
     pass
-
 
 def vozvrat():
     pass
@@ -40,6 +55,8 @@ while running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
+        if event.type == pygame.KEYDOWN:
+            vozvrat()
     draw()
     pygame.display.flip()
     clock.tick(24)
