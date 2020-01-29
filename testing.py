@@ -43,6 +43,7 @@ def vorota():
                 schet_igr += 1
             else:
                 schet_comp += 1
+                print()
             vozvrat()
 
 
