@@ -9,6 +9,22 @@ def draw():
     pass
 
 
+def otbit():
+    pass
+
+
+def kraya():
+    pass
+
+
+def vorota():
+    pass
+
+
+def vozvrat():
+    pass
+
+
 pygame.display.flip()
 running = True
 clock = pygame.time.Clock()
